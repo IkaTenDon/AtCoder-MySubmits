@@ -1,12 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int N;
-    string S;
-    int ans;
 
+    int N = 0, M = 0;
+    cin >> N >> M;
+
+    string S = "";
+    cin >> S;
+    
     vector<int> A(N, 0);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+
     vector<vector<int>> B(N, vector<int>(N, 0));
+    int U;
+    int V;
+    for (int i = 0; i < M; i++)
+    {
+        cin >> U >> V;
+        U--;
+        V--;
+        way[U][V] = 1;
+        way[V][U] = 1;
+    }
+
+
     A.emplace_back(5);
 
     stack<int> st;
@@ -48,5 +67,8 @@ int main() {
     it--; //イテレータは場所を示すのでインクリやデクリができる
     cout << *it <<endl; //3
 
+    int ans = 0;
+    cout << ans <<endl;
+    
     return 0;
 }
